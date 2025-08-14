@@ -1,0 +1,673 @@
+[gd_scene load_steps=34 format=3 uid="uid://d23onily2eluc"]
+
+[ext_resource type="Texture2D" uid="uid://yuohnb62ajef" path="res://textures/bg.webp" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://by571frehmc84" path="res://main_game.gd" id="1_yaehf"]
+[ext_resource type="Texture2D" uid="uid://bqqnm0utmbj70" path="res://textures/angry-Photoroom.png" id="2_vivmo"]
+[ext_resource type="Texture2D" uid="uid://cja47bcdumjmh" path="res://textures/annoy-Photoroom.png" id="3_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://cnr5k0vmdvli5" path="res://textures/bath-Photoroom.png" id="4_yaehf"]
+[ext_resource type="Texture2D" uid="uid://6t58wcgj5kno" path="res://textures/sad2-Photoroom.png" id="5_074og"]
+[ext_resource type="Texture2D" uid="uid://blgx1jfbvnnaa" path="res://textures/crying-Photoroom.png" id="6_cegan"]
+[ext_resource type="Texture2D" uid="uid://dw18sakwlro3" path="res://textures/happy2-Photoroom.png" id="7_82xsv"]
+[ext_resource type="Texture2D" uid="uid://ckuhev7c0ry5y" path="res://textures/dirty-Photoroom.png" id="8_getpj"]
+[ext_resource type="Texture2D" uid="uid://xenkoagqu1vn" path="res://textures/eat-Photoroom.png" id="9_ryguw"]
+[ext_resource type="Texture2D" uid="uid://cqhdja4nggcqi" path="res://textures/happy-Photoroom.png" id="10_d13ii"]
+[ext_resource type="Texture2D" uid="uid://cm12hof1dv7wf" path="res://textures/play-Photoroom.png" id="11_1u8w0"]
+[ext_resource type="Texture2D" uid="uid://brfpyvseshwxk" path="res://textures/eat2.png" id="11_074og"]
+[ext_resource type="Texture2D" uid="uid://cfjawb4an06jm" path="res://textures/sad-Photoroom.png" id="12_0odxb"]
+[ext_resource type="Texture2D" uid="uid://bc74doo1p0m6i" path="res://textures/sick-Photoroom.png" id="13_lswn8"]
+[ext_resource type="Texture2D" uid="uid://ctvpqwxmcgjg4" path="res://textures/sleep2-Photoroom.png" id="14_a6jrf"]
+[ext_resource type="Texture2D" uid="uid://u61rgljjvuj1" path="res://textures/umbrella.png" id="14_cegan"]
+[ext_resource type="Texture2D" uid="uid://b7aw3pev582c5" path="res://textures/ngap-Photoroom.png" id="15_xuqvo"]
+[ext_resource type="Script" uid="uid://dqi7rcgyorsvj" path="res://peppa.gd" id="17_074og"]
+[ext_resource type="AudioStream" uid="uid://dvtitnxqhvpuj" path="res://audio/Theme Music From Peppa Pig.mp3" id="20_82xsv"]
+[ext_resource type="PackedScene" uid="uid://coc2vlw6bb3w4" path="res://scenes/settings_menu.tscn" id="20_ryguw"]
+[ext_resource type="AudioStream" uid="uid://df4ev67nns2wc" path="res://audio/rain.mp3" id="21_getpj"]
+
+[sub_resource type="Animation" id="Animation_82xsv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cegan"]
+resource_name = "fade_out_in"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_getpj"]
+_data = {
+&"RESET": SubResource("Animation_82xsv"),
+&"fade_out_in": SubResource("Animation_cegan")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qsp4k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_ryguw")
+}],
+"loop": false,
+"name": &"aftereat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vivmo")
+}],
+"loop": false,
+"name": &"angry",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2cqfq")
+}],
+"loop": false,
+"name": &"annoy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_yaehf")
+}],
+"loop": false,
+"name": &"bath",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_074og")
+}],
+"loop": false,
+"name": &"bored",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_cegan")
+}],
+"loop": false,
+"name": &"cry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_82xsv")
+}],
+"loop": false,
+"name": &"delight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_getpj")
+}],
+"loop": false,
+"name": &"dirty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_074og")
+}],
+"loop": false,
+"name": &"eat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_d13ii")
+}],
+"loop": false,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_1u8w0")
+}],
+"loop": false,
+"name": &"play",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_cegan")
+}],
+"loop": false,
+"name": &"rain",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_0odxb")
+}],
+"loop": false,
+"name": &"sad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_lswn8")
+}],
+"loop": false,
+"name": &"sick",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_a6jrf")
+}],
+"loop": false,
+"name": &"sleep",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_xuqvo")
+}],
+"loop": false,
+"name": &"yawn",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cegan"]
+bg_color = Color(0.96349, 0.347027, 0.453117, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82xsv"]
+bg_color = Color(0.964706, 0.345098, 0.454902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_getpj"]
+bg_color = Color(0.964706, 0.345098, 0.454902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryguw"]
+bg_color = Color(0.964706, 0.345098, 0.454902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0odxb"]
+bg_color = Color(0.08465, 0.490681, 0.727833, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d13ii"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.196078)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1u8w0"]
+bg_color = Color(0.37875, 0.588793, 0.982367, 1)
+
+[node name="main_game" type="Node2D"]
+script = ExtResource("1_yaehf")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -7.0
+offset_right = 957.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.01403, 1.66839)
+texture = ExtResource("1_ig7tw")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="BackgroundTransitionPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_getpj")
+}
+
+[node name="Peppa" type="AnimatedSprite2D" parent="."]
+position = Vector2(989, 673)
+scale = Vector2(0.68783, 0.711867)
+sprite_frames = SubResource("SpriteFrames_qsp4k")
+animation = &"eat"
+script = ExtResource("17_074og")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ActionButtonsContainer" type="VBoxContainer" parent="UI"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 421.0
+offset_right = 340.0
+offset_bottom = -210.0
+grow_vertical = 2
+
+[node name="FeedButton" type="Button" parent="UI/ActionButtonsContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_cegan")
+text = "Cho ăn"
+
+[node name="PlayButton" type="Button" parent="UI/ActionButtonsContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_82xsv")
+text = "Chơi Game"
+
+[node name="BatheButton" type="Button" parent="UI/ActionButtonsContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_getpj")
+text = "Đi tắm"
+
+[node name="SleepButton" type="Button" parent="UI/ActionButtonsContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ryguw")
+text = "Đi ngủ"
+
+[node name="SettingsButton" type="Button" parent="UI/ActionButtonsContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_0odxb")
+text = "Cài Đặt"
+
+[node name="StatBarsContainer" type="VBoxContainer" parent="UI"]
+offset_left = 1570.0
+offset_top = 454.0
+offset_right = 1893.0
+offset_bottom = 790.0
+
+[node name="HungerBar" type="ProgressBar" parent="UI/StatBarsContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+
+[node name="Label" type="Label" parent="UI/StatBarsContainer/HungerBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.113
+anchor_top = 0.5
+anchor_right = 0.113
+anchor_bottom = 0.5
+offset_left = -24.499
+offset_top = -21.5
+offset_right = 24.501
+offset_bottom = 20.5
+theme_override_font_sizes/font_size = 30
+text = "Đói"
+
+[node name="HappinessBar" type="ProgressBar" parent="UI/StatBarsContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+
+[node name="Label" type="Label" parent="UI/StatBarsContainer/HappinessBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.118
+anchor_top = 0.484
+anchor_right = 0.118
+anchor_bottom = 0.484
+offset_left = -26.114
+offset_top = -19.556
+offset_right = 27.886
+offset_bottom = 22.444
+theme_override_font_sizes/font_size = 30
+text = "Vui "
+
+[node name="AlertnessBar" type="ProgressBar" parent="UI/StatBarsContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+
+[node name="Label" type="Label" parent="UI/StatBarsContainer/AlertnessBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.132
+anchor_top = 0.5
+anchor_right = 0.132
+anchor_bottom = 0.5
+offset_left = -31.636
+offset_top = -20.5
+offset_right = 31.364
+offset_bottom = 21.5
+theme_override_font_sizes/font_size = 30
+text = "Tỉnh"
+
+[node name="CleanlinessBar" type="ProgressBar" parent="UI/StatBarsContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+
+[node name="Label" type="Label" parent="UI/StatBarsContainer/CleanlinessBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.146
+anchor_top = 0.5
+anchor_right = 0.146
+anchor_bottom = 0.5
+offset_left = -34.158
+offset_top = -18.5
+offset_right = 33.842
+offset_bottom = 23.5
+theme_override_font_sizes/font_size = 30
+text = "Sạch"
+
+[node name="NotificationLabel" type="Label" parent="UI"]
+visible = false
+layout_direction = 1
+anchors_preset = -1
+anchor_left = 0.512
+anchor_top = 0.034
+anchor_right = 0.512
+anchor_bottom = 0.034
+offset_left = -289.04
+offset_top = -37.72
+offset_right = 288.96
+offset_bottom = 37.28
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_d13ii")
+text = "Hết năng lượng rồi!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnergyBar" type="ProgressBar" parent="UI"]
+offset_left = 5.0
+offset_top = 121.0
+offset_right = 314.0
+offset_bottom = 197.0
+theme_override_font_sizes/font_size = 35
+theme_override_styles/fill = SubResource("StyleBoxFlat_1u8w0")
+
+[node name="Label" type="Label" parent="UI/EnergyBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.168
+anchor_top = 0.482
+anchor_right = 0.168
+anchor_bottom = 0.5
+offset_left = -40.928
+offset_top = -17.488
+offset_right = 41.072
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Energy"
+
+[node name="EnergyTimerLabel" type="Label" parent="UI/EnergyBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.458
+anchor_top = 1.411
+anchor_right = 0.458
+anchor_bottom = 1.411
+offset_left = -96.018
+offset_top = -23.524
+offset_right = 95.982
+offset_bottom = 23.476
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Đang hồi..."
+
+[node name="SettingsMenu" parent="UI" instance=ExtResource("20_ryguw")]
+visible = false
+
+[node name="MoneyLabel" type="Label" parent="UI"]
+offset_left = 19.0
+offset_top = 21.0
+offset_right = 228.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Tiền: 100"
+
+[node name="FoodMenuPanel" type="Panel" parent="UI"]
+visible = false
+offset_left = 688.0
+offset_top = 217.0
+offset_right = 1257.0
+offset_bottom = 1095.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/FoodMenuPanel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 22.0
+offset_right = 551.0
+offset_bottom = 842.0
+
+[node name="SpaghettiRow" type="HBoxContainer" parent="UI/FoodMenuPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="BuyButton" type="Button" parent="UI/FoodMenuPanel/VBoxContainer/SpaghettiRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+keep_pressed_outside = true
+text = "MÌ Ý (25 XU)"
+vertical_icon_alignment = 0
+
+[node name="QuantitySelector" type="HBoxContainer" parent="UI/FoodMenuPanel/VBoxContainer/SpaghettiRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MinusButton" type="Button" parent="UI/FoodMenuPanel/VBoxContainer/SpaghettiRow/QuantitySelector"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "-"
+
+[node name="QuantityLabel" type="Label" parent="UI/FoodMenuPanel/VBoxContainer/SpaghettiRow/QuantitySelector"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "1"
+
+[node name="PlusButton" type="Button" parent="UI/FoodMenuPanel/VBoxContainer/SpaghettiRow/QuantitySelector"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "+"
+
+[node name="SeaweedRow" type="HBoxContainer" parent="UI/FoodMenuPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="BuyButton" type="Button" parent="UI/FoodMenuPanel/VBoxContainer/SeaweedRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "Seaweed (15 XU)"
+vertical_icon_alignment = 0
+
+[node name="QuantitySelector" type="HBoxContainer" parent="UI/FoodMenuPanel/VBoxContainer/SeaweedRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MinusButton" type="Button" parent="UI/FoodMenuPanel/VBoxContainer/SeaweedRow/QuantitySelector"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "-"
+
+[node name="QuantityLabel" type="Label" parent="UI/FoodMenuPanel/VBoxContainer/SeaweedRow/QuantitySelector"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "1"
+
+[node name="PlusButton" type="Button" parent="UI/FoodMenuPanel/VBoxContainer/SeaweedRow/QuantitySelector"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "+"
+
+[node name="FriedChickenRow" type="HBoxContainer" parent="UI/FoodMenuPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="BuyButton" type="Button" parent="UI/FoodMenuPanel/VBoxContainer/FriedChickenRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "GÀ RÁN(40 XU)"
+vertical_icon_alignment = 0
+
+[node name="QuantitySelector" type="HBoxContainer" parent="UI/FoodMenuPanel/VBoxContainer/FriedChickenRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MinusButton" type="Button" parent="UI/FoodMenuPanel/VBoxContainer/FriedChickenRow/QuantitySelector"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 20
+text = "-"
+
+[node name="QuantityLabel" type="Label" parent="UI/FoodMenuPanel/VBoxContainer/FriedChickenRow/QuantitySelector"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="PlusButton" type="Button" parent="UI/FoodMenuPanel/VBoxContainer/FriedChickenRow/QuantitySelector"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 20
+text = "+"
+
+[node name="HamburgerRow" type="HBoxContainer" parent="UI/FoodMenuPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="BuyButton" type="Button" parent="UI/FoodMenuPanel/VBoxContainer/HamburgerRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "HAM(35 XU)"
+vertical_icon_alignment = 0
+
+[node name="QuantitySelector" type="HBoxContainer" parent="UI/FoodMenuPanel/VBoxContainer/HamburgerRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MinusButton" type="Button" parent="UI/FoodMenuPanel/VBoxContainer/HamburgerRow/QuantitySelector"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "-"
+
+[node name="QuantityLabel" type="Label" parent="UI/FoodMenuPanel/VBoxContainer/HamburgerRow/QuantitySelector"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "1"
+
+[node name="PlusButton" type="Button" parent="UI/FoodMenuPanel/VBoxContainer/HamburgerRow/QuantitySelector"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "+"
+
+[node name="PizzaRow" type="HBoxContainer" parent="UI/FoodMenuPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="BuyButton" type="Button" parent="UI/FoodMenuPanel/VBoxContainer/PizzaRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "PIZZA(50 XU)"
+vertical_icon_alignment = 0
+
+[node name="QuantitySelector" type="HBoxContainer" parent="UI/FoodMenuPanel/VBoxContainer/PizzaRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MinusButton" type="Button" parent="UI/FoodMenuPanel/VBoxContainer/PizzaRow/QuantitySelector"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "-"
+
+[node name="QuantityLabel" type="Label" parent="UI/FoodMenuPanel/VBoxContainer/PizzaRow/QuantitySelector"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "1"
+
+[node name="PlusButton" type="Button" parent="UI/FoodMenuPanel/VBoxContainer/PizzaRow/QuantitySelector"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "+"
+
+[node name="CloseButton" type="Button" parent="UI/FoodMenuPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 40
+text = "Close"
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_82xsv")
+volume_db = -23.03
+autoplay = true
+bus = &"Music"
+
+[node name="RainSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_getpj")
+bus = &"SFX"
